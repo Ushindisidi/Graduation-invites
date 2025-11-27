@@ -266,6 +266,22 @@ h1 {
   .person .photo { min-height: 280px; }
   h1 { font-size: 28px; }
 }
+/* Make wishlist stack and adjust hero for small screens */
+@media (max-width: 600px) {
+  .wishlist-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .details {
+    gap: 16px;
+  }
+  .person .photo {
+    min-height: 220px;
+  }
+  .person .info {
+    padding: 20px;
+  }
+}
+
 @media (max-width:520px) {
   body { padding: 12px; }
   .person .info { padding: 20px; }
@@ -273,6 +289,7 @@ h1 {
   .badge { padding: 6px 10px; }
 }
 </style>
+
 
 </head>
 <body>
