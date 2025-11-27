@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ushindi & Eric — Joint Graduation Celebration</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --royal: #1e2a78;           /* deeper royal blue */
+  --beige: #fdf6ed;           /* soft beige for background */
+  --gold: #d4af37;             /* rich gold accent */
+  --muted: #555555;            /* muted text */
+  --white: #ffffff;
+  --max-width: 1200px;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+html, body { min-height: 100%; margin: 0; padding: 0; }
+body {
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, var(--beige), #fff);
+  background-attachment: fixed;
+  color: #222;
+  line-height: 1.6;
+  padding: 24px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(255,244,210,0.92), rgba(255,250,235,0.98));
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(30,42,120,0.08), 0 6px 12px rgba(212,175,55,0.08);
+  overflow: hidden;
+}
+
+header { padding: 28px 36px 0; }
+.top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand .logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, var(--gold), #b8860b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-family: "Playfair Display", serif;
+  box-shadow: 0 8px 20px rgba(30,42,120,0.08);
+}
+.brand h2 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  color: var(--royal);
+  font-size: 20px;
+}
+
+nav { display: flex; gap: 10px; align-items: center; }
+.nav-btn {
+  background: none;
+  border: 1px solid rgba(30,42,120,0.08);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--royal);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30,42,120,0.1);
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: stretch;
+}
+.person {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  gap: 0;
+  align-items: stretch;
+}
+.person .photo {
+  width: 50%;
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+.person .photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+}
+.photo-badge {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  background: rgba(255,255,255,0.95);
+  padding: 8px 12px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(30,42,120,0.08);
+  font-weight: 700;
+  color: var(--royal);
+  z-index: 3;
+}
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(212,175,55,0.15), rgba(30,42,120,0.1));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.person .info {
+  width: 50%;
+  padding: 36px 44px;
+  background: linear-gradient(180deg, rgba(255,244,210,0.72), rgba(255,250,235,0.95));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(212,175,55,0.12);
+  color: var(--royal);
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border: 1px solid rgba(212,175,55,0.12);
+  width: max-content;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  color: var(--royal);
+  letter-spacing: 0.5px;
+}
+.subtitle {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+.story {
+  margin-top: 6px;
+  color: #333;
+  font-size: 15px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.85));
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(30,42,120,0.04);
+  box-shadow: 0 6px 18px rgba(30,42,120,0.04), 0 3px 10px rgba(212,175,55,0.06);
+}
+
+/* DETAILS */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  padding: 28px 36px 36px;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 12px 24px rgba(30,42,120,0.08), 0 6px 12px rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.1);
+}
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.wish {
+  padding: 12px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(212,175,55,0.05), rgba(255,255,255,0.6));
+  border: 1px dashed rgba(212,175,55,0.2);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 700;
+  color: var(--royal);
+}
+.wish small {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 6px 16px rgba(30,42,120,0.06);
+}
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: linear-gradient(90deg, var(--royal), #0d4b85);
+  color: var(--white);
+}
+.btn-gold {
+  background: linear-gradient(90deg, var(--gold), #b8860b);
+  color: #fff;
+}
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(212,175,55,0.3);
+}
+
+.accent-line {
+  height: 4px;
+  width: 64px;
+  background: linear-gradient(90deg, var(--gold), var(--royal));
+  border-radius: 999px;
+  margin-top: 6px;
+}
+
+/* Responsive */
+@media (max-width:980px) {
+  .hero { grid-template-columns: 1fr; }
+  .person { flex-direction: column; }
+  .person .photo, .person .info { width: 100%; }
+  .details { grid-template-columns: 1fr; }
+  .person .photo { min-height: 280px; }
+  h1 { font-size: 28px; }
+}
+@media (max-width:520px) {
+  body { padding: 12px; }
+  .person .info { padding: 20px; }
+  .brand h2 { font-size: 16px; }
+  .badge { padding: 6px 10px; }
+}
+</style>
+
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="siteTitle">
+    <header>
+      <div class="top-row">
+        <div class="brand" aria-hidden="false">
+          <div class="logo" aria-hidden="true">U&E</div>
+          <h2 id="siteTitle">Ushindi & Eric — Class of 2025</h2>
+        </div>
+        <nav aria-label="Primary">
+          <button class="nav-btn" onclick="document.querySelector('#wishlist').scrollIntoView({behavior:'smooth',block:'center'})">Wishlist</button>
+          <button class="nav-btn" onclick="document.querySelector('#venue').scrollIntoView({behavior:'smooth',block:'center'})">Venue</button>
+          <button class="nav-btn" onclick="document.querySelector('#rsvp').scrollIntoView({behavior:'smooth',block:'center'})">RSVP</button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO (Ushindi + Eric) -->
+    <section class="hero" aria-label="Intro">
+      <!-- Ushindi -->
+      <div class="person" aria-label="Ushindi">
+        <div class="photo" aria-hidden="true">
+          <span class="photo-badge">Ushindi Sidi Kombe</span>
+          <!-- placeholder image: replace with ushindi.jpg -->
+          <img src="images/ushindi.jpg" alt="Portrait of Ushindi Sidi Kombe" />
+          <div class="photo-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="info">
+          <span class="badge">Class of 2025</span>
+          <h1>Ushindi Sidi Kombe</h1>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <div class="subtitle">University of Nairobi — Bachelor of Information Science (Second Class Upper)</div>
+            <div class="accent-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="story" aria-label="Ushindi's story">
+            <p style="margin:0;"><em>"This moment means more to me than I can ever put into words. Walking across that stage didn't just mark the end of my studies — it marked the years I prayed, pushed, cried, laughed, and grew into the woman I am becoming."</em></p>
+            <p style="margin-top:8px;color:#444;margin-bottom:0">
+              At the University of Nairobi I discovered my strength—the discipline, patience, and resilience that shaped me. Every late night and sacrifice brought me here. I'm grateful for those who loved me and held space for me. As I step into the next chapter, my heart is full and my spirit is ready.
+            </p>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="document.querySelector('#wishlist').scrollIntoView({behavior:'smooth',block:'center'})">See Wishlist</button>
+            <button class="btn btn-gold" onclick="document.querySelector('#venue').scrollIntoView({behavior:'smooth',block:'center'})">Venue & Map</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eric -->
+      <div class="person" aria-label="Eric">
+        <div class="photo" aria-hidden="true">
+          <span class="photo-badge">Eric Kahindi</span>
+          <!-- placeholder image: replace with eric.jpg -->
+          <img src="images/koko.jpg" alt="Portrait of Eric Kahindi" />
+          <div class="photo-overlay" aria-hidden="true"></div>
+        </div>
+        <div class="info">
+          <span class="badge">Class of 2025</span>
+          <h1>Eric Kahindi</h1>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+            <div class="subtitle">JKUAT — Bachelor of Computer Science(Second Class Upper)</div>
+            <div class="accent-line" aria-hidden="true"></div>
+          </div>
+
+          <div class="story" aria-label="Eric's story">
+            <p style="margin:0;"><em>"Graduating from JKUAT is a dream realized after years of dedication, late nights, and hard work. I am thrilled to celebrate this milestone with my loved ones."</em></p>
+            <p style="margin-top:8px;color:#444;margin-bottom:0">
+              This journey taught me patience, focus, and resilience. I'm grateful to everyone who supported and cheered me on. I'm ready to celebrate this achievement with music, laughter, and unforgettable vibes!
+            </p>
+          </div>
+
+          <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+            <button class="btn btn-primary" onclick="document.querySelector('#wishlist').scrollIntoView({behavior:'smooth',block:'center'})">See Wishlist</button>
+            <button class="btn btn-gold" onclick="document.querySelector('#venue').scrollIntoView({behavior:'smooth',block:'center'})">Venue & Map</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILS -->
+    <section class="details" aria-label="Details">
+      <div>
+        <!-- Combined Wishlist -->
+        <div class="card" id="wishlist" aria-labelledby="wishlistTitle">
+          <h3 id="wishlistTitle" style="margin:0 0 8px 0">🎁 Our Graduation Wishlists</h3>
+          <p style="margin:0;color:var(--muted)">Two columns — two wishlists. Pick a gift or contribute via M-Pesa.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+            <!-- Ushindi column -->
+            <div>
+              <h4 style="margin:0 0 8px 0">Ushindi's Wishlist</h4>
+              <div class="wishlist-grid" aria-hidden="false">
+                <div class="wish">💗 Pink keyboard <small>Wireless or wired — something cute and durable</small></div>
+                <div class="wish">🔌 HDMI → DisplayPort cable <small>Quality 4K capable</small></div>
+                <div class="wish">🥤 Sturdy blender <small>For smoothies & kitchen vibes</small></div>
+                <div class="wish">🥾 Doc Martens — Size 41 <small>Classic black or cherry red</small></div>
+                <div class="wish">✨ Jewelry <small>Simple gold pieces or a delicate necklace</small></div>
+                <div class="wish">🖱️ Cute mouse (preferably pink) <small>Wireless preferred</small></div>
+              </div>
+
+              <div class="card" style="margin-top:12px;padding:12px">
+                <div style="font-weight:700;color:var(--royal)">Ushindi M-Pesa</div>
+                <div class="mpesa" style="margin-top:8px">
+                  <div><small style="color:var(--muted);display:block">Till / Number</small><strong id="ushindiMpesa">0748920454</strong></div>
+                  <div style="display:flex;gap:8px">
+                    <button class="btn" id="copyUshindi" style="background:linear-gradient(90deg,var(--gold), #b8872f);color:#fff">Copy</button>
+                    <button class="btn btn-primary" id="dialUshindi">Open on Phone</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Eric column -->
+            <div>
+              <h4 style="margin:0 0 8px 0">Eric's Wishlist</h4>
+              <div class="wishlist-grid" aria-hidden="false">
+                <div class="wish">🥤 Sturdy blender <small>For smoothies & kitchen vibes</small></div>
+                <div class="wish">🏋️ Dumbbells <small>For staying fit and active</small></div>
+                <div class="wish">🔊 Speaker <small>For music and vibes</small></div>
+                <div class="wish">🔋 Powerbank <small>Keep devices charged</small></div>
+                <div class="wish">🍳 Pan with lid <small>For cooking and kitchen adventures</small></div>
+              </div>
+
+              <div class="card" style="margin-top:12px;padding:12px">
+                <div style="font-weight:700;color:var(--royal)">Eric M-Pesa</div>
+                <div class="mpesa" style="margin-top:8px">
+                  <div><small style="color:var(--muted);display:block">M-Pesa Number</small><strong id="ericMpesa">+254717588898</strong></div>
+                  <div style="display:flex;gap:8px">
+                    <button class="btn" id="copyEric" style="background:linear-gradient(90deg,var(--gold), #b8872f);color:#fff">Copy</button>
+                    <button class="btn btn-primary" id="dialEric">Open on Phone</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div class="card" style="margin-top:18px;">
+          <h4 style="margin:0 0 8px 0">📸 Moments & Memories</h4>
+          <p style="margin:0;color:var(--muted)">A few highlights of the uni life.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:12px">
+            <img src="images/sidi.jpg" alt="Ushindi portrait" style="width:100%;height:120px;object-fit:cover;border-radius:8px;"/>
+            <img src="images/uon.jpg" alt="Ushindi portrait" style="width:100%;height:120px;object-fit:cover;border-radius:8px;"/>
+            <img src="images/ericc.jpg" alt="Eric portrait" style="width:100%;height:120px;object-fit:cover;border-radius:8px;"/>
+              <img src="images/eriic.jpg" alt="Ushindi portrait" style="width:100%;height:120px;object-fit:cover;border-radius:8px;"/>
+            <div style="background:linear-gradient(180deg, rgba(11,59,102,0.06), rgba(255,255,255,0.8));padding:12px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--royal);font-weight:700"></div>
+          </div>
+        </div>
+<!-- RSVP SECTION -->
+<div class="card" id="rsvp" aria-labelledby="rsvpTitle">
+  <h3 id="rsvpTitle" style="margin:0 0 8px 0">📝 RSVP — Join Our Celebration</h3>
+  <p style="margin:0;color:var(--muted)">
+    We’re excited to celebrate with you! Kindly confirm your attendance.
+  </p>
+
+  <div style="margin-top:16px;font-weight:700;color:var(--royal)">
+    📅 Date: 12th December 2025  
+    ⏰ Time: From 12:00 PM  
+  </div>
+
+  <!-- Hidden iframe for form submission -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <form id="rsvpForm" 
+        action="https://script.google.com/macros/s/AKfycbwdHkeOCwReA6KqMpm8qmUM5jQ59-fMytu5eMaQRn4wM6Ke44FiP9JKcBczYG_mcr22/exec" 
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="showSuccess()"
+        style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
+
+    <input type="text" name="name" placeholder="Full Name" required
+           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+
+    <input type="tel" name="phone" placeholder="Phone Number" required
+           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+
+    <select name="attendance" required
+            style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+      <option value="" disabled selected>Will you attend?</option>
+      <option value="Yes">Yes, I’ll be there!</option>
+      <option value="Maybe">Maybe</option>
+      <option value="No">No, I can’t make it</option>
+    </select>
+
+    <textarea name="message" rows="3" placeholder="Message (Optional)"
+              style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px"></textarea>
+
+    <button class="btn btn-primary" type="submit">Submit RSVP</button>
+  </form>
+
+  <p id="rsvpSuccess" 
+     style="display:none;margin-top:12px;color:green;font-weight:700;">
+     ✔ Thank you! Your RSVP has been received.
+  </p>
+</div>
+
+<script>
+  function showSuccess() {
+    // small delay to ensure form submits
+    setTimeout(() => {
+      document.getElementById("rsvpSuccess").style.display = "block";
+      document.getElementById("rsvpForm").reset();
+    }, 500);
+  }
+</script>
+
+
+      <!-- Sidebar: Venue & Join -->
+      <aside>
+        <div class="card venue" id="venue" aria-labelledby="venueTitle">
+          <h4 id="venueTitle" style="margin:0 0 6px 0">📍 Venue</h4>
+          <div style="font-weight:700;color:var(--royal)">Oakwood Spring Estate — House No. 90A</div>
+          <div style="color:var(--muted);margin-top:6px">Near Safari Park Hotel, Nairobi</div>
+
+          <div style="margin-top:12px">
+            <small style="color:var(--muted)">Event date & time</small>
+            <div id="eventInfo" style="font-weight:700;margin-top:6px">Date: <em>12th December 2025</em> • Time: <em>from 12 pm</em></div>
+          </div>
+
+          <div class="map-cta" style="margin-top:12px">
+            <a class="btn btn-primary" href="https://maps.app.goo.gl/x7VyW2JwrKDiW2U29" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+            <a class="btn btn-gold" href="https://www.google.com/maps/search/Oakwood+Spring+Estate+90A+Nairobi" target="_blank" rel="noopener noreferrer">View map (web)</a>
+          </div>
+
+          <div style="margin-top:12px;color:var(--muted);font-size:14px">
+            Dress code: <strong>Anything you feel comfortable in</strong> — lunch, music, and vibes provided.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:18px;text-align:center">
+          <h4 style="margin:0 0 6px 0">✨ Join Us</h4>
+          <p style="margin:0;color:var(--muted)">We'd love to celebrate with you — lunch, music, and good vibes guaranteed.</p>
+          <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
+            <a class="btn btn-primary" href="mailto:sidiushindi@gmail.com?subject=Graduation%20RSVP" aria-label="RSVP via email">RSVP via Email</a>
+            <a class="btn btn-gold" href="#wishlist" aria-label="Open wishlist">Wishlist</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      Made with love ❤️ • Ushindi Sidi Kombe &amp; Eric Kahindi — Class of 2025
+    </footer>
+  </div>
+
+  <script>
+    // Copy functions for both M-Pesa numbers
+    async function copyText(text, btn) {
+      try {
+        await navigator.clipboard.writeText(text);
+        const orig = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(()=> btn.textContent = orig, 1600);
+      } catch (e) {
+        alert('Copy this number: ' + text);
+      }
+    }
+
+    document.getElementById('copyUshindi').addEventListener('click', ()=>{
+      copyText(document.getElementById('ushindiMpesa').textContent.trim(), document.getElementById('copyUshindi'));
+    });
+    document.getElementById('copyEric').addEventListener('click', ()=>{
+      copyText(document.getElementById('ericMpesa').textContent.trim(), document.getElementById('copyEric'));
+    });
+
+    // Dial/Open in phone - uses tel: for mobile quick open
+    document.getElementById('dialUshindi').addEventListener('click', ()=>{
+      const num = document.getElementById('ushindiMpesa').textContent.trim().replace(/\s+/g,'');
+      window.location.href = 'tel:' + num;
+    });
+    document.getElementById('dialEric').addEventListener('click', ()=>{
+      const num = document.getElementById('ericMpesa').textContent.trim().replace(/\s+/g,'');
+      window.location.href = 'tel:' + num;
+    });
+
+   
