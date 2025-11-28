@@ -273,12 +273,30 @@ h1 {
   }
   .details {
     gap: 16px;
+    padding: 16px;
   }
   .person .photo {
     min-height: 220px;
   }
   .person .info {
     padding: 20px;
+  }
+  /* Stack wishlist columns on mobile */
+  #wishlist > div > div {
+    grid-template-columns: 1fr !important;
+  }
+  /* Make buttons stack better */
+  .map-cta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .mpesa > div:last-child {
+    flex-wrap: wrap;
+  }
+  /* Ensure form inputs are responsive */
+  #rsvpForm input, #rsvpForm select, #rsvpForm textarea {
+    width: 100%;
   }
 }
 
@@ -287,6 +305,9 @@ h1 {
   .person .info { padding: 20px; }
   .brand h2 { font-size: 16px; }
   .badge { padding: 6px 10px; }
+  header { padding: 20px 16px 0; }
+  .details { padding: 12px; }
+  .card { padding: 16px; }
 }
 </style>
 
@@ -395,8 +416,8 @@ h1 {
               <div class="card" style="margin-top:12px;padding:12px">
                 <div style="font-weight:700;color:var(--royal)">Ushindi M-Pesa</div>
                 <div class="mpesa" style="margin-top:8px">
-                  <div><small style="color:var(--muted);display:block">Till / Number</small><strong id="ushindiMpesa">0748920454</strong></div>
-                  <div style="display:flex;gap:8px">
+                  <div><small style="color:var(--muted);display:block">Till / Number</small><strong id="ushindiMpesa" style="user-select:all;cursor:pointer" onclick="copyText(this.textContent.trim(), document.getElementById('copyUshindi'))">0748920454</strong></div>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
                     <button class="btn" id="copyUshindi" style="background:linear-gradient(90deg,var(--gold), #b8872f);color:#fff">Copy</button>
                     <button class="btn btn-primary" id="dialUshindi">Open on Phone</button>
                   </div>
@@ -418,8 +439,8 @@ h1 {
               <div class="card" style="margin-top:12px;padding:12px">
                 <div style="font-weight:700;color:var(--royal)">Eric M-Pesa</div>
                 <div class="mpesa" style="margin-top:8px">
-                  <div><small style="color:var(--muted);display:block">M-Pesa Number</small><strong id="ericMpesa">+254717588898</strong></div>
-                  <div style="display:flex;gap:8px">
+                  <div><small style="color:var(--muted);display:block">M-Pesa Number</small><strong id="ericMpesa" style="user-select:all;cursor:pointer" onclick="copyText(this.textContent.trim(), document.getElementById('copyEric'))">+254717588898</strong></div>
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
                     <button class="btn" id="copyEric" style="background:linear-gradient(90deg,var(--gold), #b8872f);color:#fff">Copy</button>
                     <button class="btn btn-primary" id="dialEric">Open on Phone</button>
                   </div>
@@ -445,7 +466,7 @@ h1 {
 <div class="card" id="rsvp" aria-labelledby="rsvpTitle">
   <h3 id="rsvpTitle" style="margin:0 0 8px 0">📝 RSVP — Join Our Celebration</h3>
   <p style="margin:0;color:var(--muted)">
-    We’re excited to celebrate with you! Kindly confirm your attendance.
+    We're excited to celebrate with you! Kindly confirm your attendance.
   </p>
 
   <div style="margin-top:16px;font-weight:700;color:var(--royal)">
@@ -464,23 +485,23 @@ h1 {
         style="margin-top:16px;display:flex;flex-direction:column;gap:12px">
 
     <input type="text" name="name" placeholder="Full Name" required
-           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px;width:100%">
 
     <input type="tel" name="phone" placeholder="Phone Number" required
-           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+           style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px;width:100%">
 
     <select name="attendance" required
-            style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px">
+            style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px;width:100%">
       <option value="" disabled selected>Will you attend?</option>
-      <option value="Yes">Yes, I’ll be there!</option>
+      <option value="Yes">Yes, I'll be there!</option>
       <option value="Maybe">Maybe</option>
-      <option value="No">No, I can’t make it</option>
+      <option value="No">No, I can't make it</option>
     </select>
 
     <textarea name="message" rows="3" placeholder="Message (Optional)"
-              style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px"></textarea>
+              style="padding:12px;border:1px solid rgba(11,59,102,0.1);border-radius:10px;font-size:15px;width:100%"></textarea>
 
-    <button class="btn btn-primary" type="submit">Submit RSVP</button>
+    <button class="btn btn-primary" type="submit" style="width:100%">Submit RSVP</button>
   </form>
 
   <p id="rsvpSuccess" 
@@ -498,7 +519,7 @@ h1 {
     }, 500);
   }
 </script>
-
+</div>
 
       <!-- Sidebar: Venue & Join -->
       <aside>
@@ -512,9 +533,9 @@ h1 {
             <div id="eventInfo" style="font-weight:700;margin-top:6px">Date: <em>12th December 2025</em> • Time: <em>from 12 pm</em></div>
           </div>
 
-          <div class="map-cta" style="margin-top:12px">
-            <a class="btn btn-primary" href="https://maps.app.goo.gl/x7VyW2JwrKDiW2U29" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
-            <a class="btn btn-gold" href="https://www.google.com/maps/search/Oakwood+Spring+Estate+90A+Nairobi" target="_blank" rel="noopener noreferrer">View map (web)</a>
+          <div class="map-cta" style="margin-top:12px;display:flex;gap:8px">
+            <a class="btn btn-primary" href="https://maps.app.goo.gl/x7VyW2JwrKDiW2U29" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;text-align:center">Open in Google Maps</a>
+            <a class="btn btn-gold" href="https://www.google.com/maps/search/Oakwood+Spring+Estate+90A+Nairobi" target="_blank" rel="noopener noreferrer" style="text-decoration:none;display:block;text-align:center">View map (web)</a>
           </div>
 
           <div style="margin-top:12px;color:var(--muted);font-size:14px">
@@ -525,15 +546,15 @@ h1 {
         <div class="card" style="margin-top:18px;text-align:center">
           <h4 style="margin:0 0 6px 0">✨ Join Us</h4>
           <p style="margin:0;color:var(--muted)">We'd love to celebrate with you — lunch, music, and good vibes guaranteed.</p>
-          <div style="margin-top:12px;display:flex;gap:8px;justify-content:center">
-            <a class="btn btn-primary" href="mailto:sidiushindi@gmail.com?subject=Graduation%20RSVP" aria-label="RSVP via email">RSVP via Email</a>
-            <a class="btn btn-gold" href="#wishlist" aria-label="Open wishlist">Wishlist</a>
+          <div style="margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+            <a class="btn btn-primary" href="mailto:sidiushindi@gmail.com?subject=Graduation%20RSVP" aria-label="RSVP via email" style="text-decoration:none">RSVP via Email</a>
+            <a class="btn btn-gold" href="#wishlist" aria-label="Open wishlist" style="text-decoration:none">Wishlist</a>
           </div>
         </div>
       </aside>
     </section>
 
-    <footer>
+    <footer style="padding:20px;text-align:center;color:var(--muted)">
       Made with love ❤️ • Ushindi Sidi Kombe &amp; Eric Kahindi — Class of 2025
     </footer>
   </div>
@@ -567,5 +588,6 @@ h1 {
       const num = document.getElementById('ericMpesa').textContent.trim().replace(/\s+/g,'');
       window.location.href = 'tel:' + num;
     });
-
-   
+  </script>
+</body>
+</html>
